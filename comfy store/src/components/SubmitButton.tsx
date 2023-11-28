@@ -1,17 +1,19 @@
-import { useNavigation } from "react-router-dom"
-interface submitBtn{
-    text: string
-    isSubmitting: boolean | string;
+import React from 'react';
+import { useNavigation } from 'react-router-dom';
+
+interface SubmitBtnProps {
+  text?: string;
 }
-const SubmitButton:React.FC<submitBtn> = ({text}) => {
-const navigation = useNavigation()
-const isSubmitting = navigation.state = 'submitting'
-const isSubmittingBool = typeof isSubmitting === 'boolean' ? isSubmitting : false;
+
+const SubmitBtn: React.FC<SubmitBtnProps> = ({ text }) => {
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting';
+
   return (
     <button
       type='submit'
       className='btn btn-primary btn-block'
-      disabled={isSubmittingBool}
+      disabled={isSubmitting}
     >
       {isSubmitting ? (
         <>
@@ -22,7 +24,7 @@ const isSubmittingBool = typeof isSubmitting === 'boolean' ? isSubmitting : fals
         text || 'submit'
       )}
     </button>
-  )
-}
+  );
+};
 
-export default SubmitButton
+export default SubmitBtn;
