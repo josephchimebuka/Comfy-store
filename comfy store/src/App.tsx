@@ -7,12 +7,12 @@ function App() {
     {
       path: '/',
       element: <Home/>,
-      errorElement: <Error/>,
+      errorElement: <Error status={0}/>,
       children:[
         {
           index:true,
           element: <Landing/>,
-          errorElement: <Error/>
+          errorElement: <Error status={0}/>
         },
         {
           path: 'products',
@@ -32,7 +32,7 @@ function App() {
           element: <Checkout />,
         },
         {
-          path: 'orders',
+          path: 'order',
           element: <Orders />,
         },
       ]
@@ -40,12 +40,12 @@ function App() {
     {
       path: '/login',
       element: <Login/>,
-      errorElement:<Error/>
+      errorElement:<Error status={0}/>
     },
     {
       path: '/register',
       element: <Register/>,
-      errorElement: <Error/>
+      errorElement: <Error status={0}/>
     }
   ])
   return (

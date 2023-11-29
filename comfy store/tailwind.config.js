@@ -16,4 +16,8 @@ export default {
     xl: '1700px'
   },
     plugins: [require('@tailwindcss/typography'), require('daisyui')],
+    daisyui: {
+      themes: ["light", "dark", "cupcake"],
+    },
+  
 }
