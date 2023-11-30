@@ -16,7 +16,7 @@ const navlink = () => {
             const {id, title, url} = link
             return(
                 <li key={id}>
-                    <NavLink to={url}>{title}</NavLink>
+                    <NavLink className='uppercase' to={url}>{title}</NavLink>
                 </li>
             )
         })
