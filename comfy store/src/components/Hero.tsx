@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <div className=' grid grid-cols-1 lg:grid-cols-2 gap-24 items-center'>
     <div>
-      <h1 className='max-w-2xl text-2xl font-bold tracking-tight  sm:text-6xl '>
+      <h1 className='max-w-2xl text-2xl font-bold tracking-tight  sm:text-6xl mt-24'>
       Unwind in Style: Premier Accommodations, Seamless Comfort     </h1>
 
       <p className='mt-8 max-w-xl text-lg leading-8'>
@@ -27,10 +27,10 @@ const Hero = () => {
         </Link>
       </div>
     </div>
-    <div className='hidden  h-[28rem] lg:carousel carousel-center   p-4 space-x-4 bg-neutral rounded-box'>
+    <div className='hidden  h-[30rem] lg:carousel carousel-center   p-4 space-x-4 bg-neutral rounded-box'>
       { cauroselImage.map((image, index) => {
         return (
-          <div key={image} className='carousel-item'>
+          <div key={index} className='carousel-item'>
             <img
               src={image}
               className='rounded-box h-full w-80  object-cover'
