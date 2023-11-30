@@ -10,7 +10,7 @@ const links = [
 ]
 const navlink = () => {
   return (
-    <div className='flex'>
+    <div className='flex gap-4'>
         {
         links.map((link)=>{
             const {id, title, url} = link

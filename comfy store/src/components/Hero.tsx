@@ -11,15 +11,15 @@ const Hero = () => {
   return (
     <div className=' grid grid-cols-1 lg:grid-cols-2 gap-24 items-center'>
     <div>
-      <h1 className='max-w-2xl text-4xl font-bold tracking-tight  sm:text-6xl '>
-        We improve your shopping experience.
-      </h1>
+      <h1 className='max-w-2xl text-2xl font-bold tracking-tight  sm:text-6xl '>
+      Unwind in Style: Premier Accommodations, Seamless Comfort     </h1>
 
       <p className='mt-8 max-w-xl text-lg leading-8'>
-        Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
-        cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat
-        aliqua. Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
-        qui lorem cupidatat commodo.
+      Welcome to a world of unparalleled comfort and hospitality! 
+      At DER, we redefine the art of accommodations 
+      to create an experience that transcends the ordinary. Immerse 
+      yourself in a curated selection of thoughtfully designed spaces, 
+      each crafted to cater to your unique preferences. 
       </p>
       <div className='mt-10 '>
         <Link to='products' className='btn btn-primary '>
