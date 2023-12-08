@@ -1,17 +1,26 @@
 import React from 'react'
 import { Link, useLoaderData} from 'react-router-dom'
 
-interface Products{
-    title: string;
-    price: string
+type Products = {
+    id: number;
+    attributes:{
+      title: string;
+      price: string
+      image: string
+    }
+   
 }
-const ProductGrid: React.FC<Products> = () => {
-    const {products}= useLoaderData();
+
+type ProductsData ={
+  products: Products[]
+}
+const ProductGrid = () => {
+    const {products}= useLoaderData() as ProductsData;
   return (
     <div>
         {
             products.map((product)=>{
-                const {title, image, price} = product.attribute
+                const {title, image, price} = product.attributes
                 const dollarsAmount = price
                 return(
                     <Link key={product.id}

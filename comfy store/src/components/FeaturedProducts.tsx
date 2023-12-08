@@ -6,7 +6,7 @@ const FeaturedProducts = () => {
   return (
     <div>
         <SectionTitle text='Featured products'/>
-        <ProductGrid/>
+        <ProductGrid products={[]}/>
     </div>
   )
 }
