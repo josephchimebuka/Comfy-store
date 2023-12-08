@@ -7,10 +7,13 @@ export const fetchURL= axios.create({
 })
 
 
-export const formatPrice = (price) => {
+
+export const formatPrice= (price:number) => {
     const dollarsAmount = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-    }).format((price / 100).toFixed(2));
+    }).format((price / 100));
     return dollarsAmount;
   };
+
+  

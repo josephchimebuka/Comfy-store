@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link, useLoaderData} from 'react-router-dom'
+import { formatPrice } from '../utils';
 
 type Products = {
     id: number;
     attributes:{
       title: string;
-      price: string
+      price: number;
       image: string
     }
    
@@ -17,11 +18,11 @@ type ProductsData ={
 const ProductGrid = () => {
     const {products}= useLoaderData() as ProductsData;
   return (
-    <div>
+    <div className='pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 '>
         {
             products.map((product)=>{
                 const {title, image, price} = product.attributes
-                const dollarsAmount = price
+                const dollarsAmount = formatPrice(price)
                 return(
                     <Link key={product.id}
                     to={`products/${product.id}`}>
