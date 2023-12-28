@@ -11,7 +11,7 @@ type Products = {
     }
    
 }
-
+ 
 type ProductsData ={
   products: Products[]
 }
