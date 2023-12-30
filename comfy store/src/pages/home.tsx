@@ -5,7 +5,7 @@ import { Header, Navbar } from '../components'
 const home = () => {
   return (
     <>
-    <Header/>
+    <Header/> 
     <Navbar/>
     <section className='align-element'>
 
