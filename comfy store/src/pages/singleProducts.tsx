@@ -103,7 +103,7 @@ const singleProducts = () => {
               }
           </div>
           <div>
-            //if the amount s not setting then it could propbably be because of the 
+            {/* if the amount s not setting then it could propbably be because of the  */}
             <label className='label'>Amount</label>
             <select
               className='select select-secondary select-bordered w-full select-md'
