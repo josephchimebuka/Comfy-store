@@ -23,13 +23,11 @@ interface LoaderParams {
   id: string;
 }
 
-interface Price{
-  
-}
+
 export const loader = async ({ params }: { params: LoaderParams }) => {
   try {
     const response = await fetchURL(`/products/${params.id}`);
-    const product: Product = response.data.data;
+    const product: Product = response?.data?.data;
 
     return { product };
   } catch (error) {

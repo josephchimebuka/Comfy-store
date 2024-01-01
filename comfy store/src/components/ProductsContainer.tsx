@@ -1,8 +1,13 @@
-import React from 'react'
+import ProductGrid from "./ProductGrid"
+import ProductList from "./ProductList"
+
 
 const ProductsContainer = () => {
   return (
-    <div>ProductsContainer</div>
+    <div>
+      <ProductList/>
+      <ProductGrid/>
+    </div>
   )
 }
 
