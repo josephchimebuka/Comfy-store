@@ -17,7 +17,7 @@ const ProductList = () => {
     const {products} = useLoaderData() as Products
     
   return (
-    <div  className="flex flex-col sm:flex-row">
+    <div  className="flex flex-col ">
        {
         products.map((product)=>{
 

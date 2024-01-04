@@ -10,8 +10,9 @@ const url = '/products'
 export const loader = async()=>{
     const response = await fetchURL(url)
     const products = response.data.data
+    const meta = response.data.meta
     console.log(response)
-    return{products}
+    return{products,meta}
   
 }
 const products = () => {
