@@ -19,7 +19,7 @@ type MetaData={
 
 
 const Filter = () => {
-  const {meta} = useLoaderData() as {meta: MetaData}
+  const {meta,params} = useLoaderData() as {meta: MetaData}
   const options = ['a-z', 'z-a', 'high', 'low']
   return (
   <Form className='mt-12 bg-base-200 rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center'>
@@ -27,7 +27,6 @@ const Filter = () => {
         label={'Search Category'} 
         name={'search'} 
         type={'search'}
-        defaultValue={'Search...'}
         size={''}/>
         <FormSelect 
         label={'Select Category'}
