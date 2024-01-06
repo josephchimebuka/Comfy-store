@@ -33,7 +33,7 @@ const ProductsContainer = () => {
         {total} product{total >=1 && 's'}
       </h4>
 
-      <div className="flex ">
+      <div className="flex gap-3">
         <div onClick={()=>setLayout('grid')}
         className={setactiveStyles('grid')}>
        <BsFillGridFill/>
@@ -45,7 +45,12 @@ const ProductsContainer = () => {
       
       </div>
       </div>
-    {layout === 'grid' ? 
+    {total === 0 ? (
+       <h5 className='text-2xl mt-16'>
+            Sorry, no products matched your search...
+          </h5>
+    )
+    :layout === 'grid' ? 
     <div> <ProductGrid/></div> : <div><ProductList/></div>}
       
      
