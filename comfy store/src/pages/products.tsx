@@ -5,7 +5,7 @@ import PaginationContainer from '../components/PaginationContainer'
 import { fetchURL } from '../utils'
 
 
-
+// I stil need to add the request type
 const url = '/products'
 export const loader = async({request}:{request:any})=>{
   const params = Object.fromEntries([...new URL(request.url).searchParams.entries()])
