@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { fetchURL,formatPrice } from '../utils'
 import { Link, useLoaderData } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
 
 interface ProductAttributes {
   image: string;
@@ -45,8 +46,19 @@ const singleProducts = () => {
   const dollarsAmount = formatPrice(price)
   const [productColor, setproductColor] = useState(colors[0])
   const [amount, setAmount] = useState('')
-  
+  const dispatch = useDispatch()
+  const cartProducts={
+    title,
+    image,
+    price,
+    description,
+    company,
+    colors
+  }
 
+  const addCartItems=()=>{
+    dispatch(addCartItems({products: cartProducts}))
+  }
   // const handleAmount=(e)=>{
   //     setAmount(parseInt(e.target.value))
   // }
@@ -112,6 +124,11 @@ const singleProducts = () => {
               <option value={2}>2</option>
               <option value={3}>3</option>
             </select>
+          </div>
+          <div className='mt-10'>
+            <button className='btn btn-ghost btn-md' onClick={addCartItems}>
+                Add to bag
+            </button>
           </div>
           </div>
           

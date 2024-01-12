@@ -11,7 +11,7 @@ const defaultState = {
 }
 
 const cartSlice = createSlice({
-    name: 'cartSlice',
+    name: 'cart',
     initialState: defaultState,
     reducers: {
         addCartItem:(action, state)=>{
