@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { fetchURL,formatPrice } from '../utils'
 import { Link, useLoaderData } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
+import { addCartItem } from '../../features/cart/cartSlice';
 
-interface ProductAttributes {
+ interface ProductAttributes {
   image: string;
   title: string;
   price: number;
@@ -12,18 +13,18 @@ interface ProductAttributes {
   company: string;
 }
 
-interface Product {
+ interface Product {
   attributes: ProductAttributes;
+  id: string
 }
 
-interface ProductsData {
+ interface ProductsData {
   product: Product;
 }
 
-interface LoaderParams {
+ interface LoaderParams {
   id: string;
 }
-
 
 export const loader = async ({ params }: { params: LoaderParams }) => {
   try {
@@ -41,13 +42,16 @@ export const loader = async ({ params }: { params: LoaderParams }) => {
 //   products: Products[]
 // }
 const singleProducts = () => {
+    const dispatch = useDispatch()
   const {product} = useLoaderData() as ProductsData
   const {title, image, price, description,company,colors} = product.attributes
   const dollarsAmount = formatPrice(price)
   const [productColor, setproductColor] = useState(colors[0])
   const [amount, setAmount] = useState('')
-  const dispatch = useDispatch()
+
   const cartProducts={
+    cartID: product.id + productColor,
+    productID: product.id,
     title,
     image,
     price,
@@ -56,8 +60,8 @@ const singleProducts = () => {
     colors
   }
 
-  const addCartItems=()=>{
-    dispatch(addCartItems({products: cartProducts}))
+  const addToItems=()=>{
+    dispatch(addCartItem({product: cartProducts}))
   }
   // const handleAmount=(e)=>{
   //     setAmount(parseInt(e.target.value))
@@ -126,7 +130,7 @@ const singleProducts = () => {
             </select>
           </div>
           <div className='mt-10'>
-            <button className='btn btn-ghost btn-md' onClick={addCartItems}>
+            <button className='btn btn-primary btn-md' >
                 Add to bag
             </button>
           </div>

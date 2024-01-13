@@ -30,7 +30,7 @@ const PaginationContainer = () => {
         </button>
         {pages.map((page)=>{
           return(
-            <button className="btn btn-xs sm:btn-md join-item"
+            <button key={page} className="btn btn-xs sm:btn-md join-item"
             >{page}</button>
             )
           })}

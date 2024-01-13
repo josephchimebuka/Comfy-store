@@ -2,9 +2,9 @@ import { NavLink } from 'react-router-dom'
 
 const links = [
     {id:1, title: 'home', url: '/'},
-    {id:1, title: 'about', url: 'about'},
-    {id:1, title: 'products', url: 'products'},
-    {id:1, title: 'cart', url: 'cart'}
+    {id:2, title: 'about', url: 'about'},
+    {id:3, title: 'products', url: 'products'},
+    {id:4, title: 'cart', url: 'cart'}
 ]
 const navlink = () => {
   return (

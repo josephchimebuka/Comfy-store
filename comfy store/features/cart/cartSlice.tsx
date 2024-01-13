@@ -1,7 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import {toast} from 'react-toastify'
+import {Product} from './interface'
 
-const defaultState = {
+interface CartState {
+  cartItem: never[]; // Adjust this based on the actual type of your cart items
+  numberItemsCart: number;
+  cartTotal: number;
+  shipping: number;
+  tax: number;
+  orderTotal: number;
+}
+
+
+const defaultState: CartState = {
     cartItem: [],
     numberItemsCart :0,
     cartTotal:0,
@@ -14,10 +25,9 @@ const cartSlice = createSlice({
     name: 'cart',
     initialState: defaultState,
     reducers: {
-        addCartItem:(action, state)=>{
-                console.log(action)
-        },
-
+      addCartItem:(state, action)=>{
+          console.log(action.payload)
+      },
         removeCartItems:(action, state)=>{
             console.log(state)
         },

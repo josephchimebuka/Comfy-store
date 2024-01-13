@@ -5,7 +5,7 @@ import './index.css'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify'
 import { Provider } from 'react-redux';
-import { store } from './store.ts';
+import store from './store.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 
