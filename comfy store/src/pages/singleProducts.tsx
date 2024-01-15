@@ -57,14 +57,15 @@ const singleProducts = () => {
     price,
     description,
     company,
-    colors
+    colors,
+    amount
   }
 
   const addToItems=()=>{
     dispatch(addCartItem({product: cartProducts}))
   }
   // const handleAmount=(e)=>{
-  //     setAmount(parseInt(e.target.value))
+  //     setAmount(parseInt(e.target.value)) 
   // }
 
   return (
@@ -130,7 +131,7 @@ const singleProducts = () => {
             </select>
           </div>
           <div className='mt-10'>
-            <button className='btn btn-primary btn-md' >
+            <button className='btn btn-primary btn-md' onClick={addToItems}>
                 Add to bag
             </button>
           </div>

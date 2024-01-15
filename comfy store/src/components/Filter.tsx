@@ -20,6 +20,7 @@ type MetaData={
 
 const Filter = () => {
   const {meta,params} = useLoaderData() as {meta: MetaData}
+  //These params were supposed to make me add default values to each component
   const options = ['a-z', 'z-a', 'high', 'low']
   return (
   <Form className='mt-12 bg-base-200 rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center'>
