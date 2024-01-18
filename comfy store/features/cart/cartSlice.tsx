@@ -61,18 +61,18 @@ const cartSlice = createSlice({
       console.log(state.cartItem);
       toast.success('Item added successfully to cart')
     },
-    removeCartItems: (state,action: PayloadAction<{product: CartItem}>) => {
+    removeCartItems: (state,action: PayloadAction< CartItem>) => {
       // Implement removal logic if needed
-      const {product} = action.payload;
-      const existingProduct = state.cartItem.findIndex((i)=>(i.cartID === product.cartID))
-      state.cartItem = state.cartItem.filter((i) => i.cartID !== product.cartID);
+      const {cartID} = action.payload;
+      const product = state.cartItem.findIndex((i)=>(i.cartID === cartID))
+      state.cartItem = state.cartItem.filter((i) => i.cartID !== cartID);
 
-      if (existingProduct !== -1) {
+      if (product !== -1) {
         // Item already exists, update the quantity or other properties
         // For now, let's just update the amount for demonstration purposes
-        state.cartItem[existingProduct].amount = product.amount;
+        state.cartItem[product].amount = product.amount;
    
-      } 
+      }
       state.numberItemsCart -= product.amount
       state.cartTotal -= product.price * product.price
       cartSlice.caseReducers.calculateTotals(state);
@@ -83,9 +83,9 @@ const cartSlice = createSlice({
       localStorage.setItem('cart', JSON.stringify(defaultState))
       return defaultState
     },
-    editCartItems: (state) => {
+    editCartItems: (state,action: PayloadAction<CartItem>) => {
       // Implement editing logic if needed
-      return defaultState
+      const {cartID, amount} = action.payload
     },
     calculateTotals:(state)=>{
       state.tax = 0.1 * state.cartTotal

@@ -1,11 +1,16 @@
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../features/cart/root-reducer"
-import { removeCartItems } from "../../features/cart/cartSlice"
+import { editCartItems, removeCartItems } from "../../features/cart/cartSlice"
+
 
 
 const dispatch = useDispatch()
 const removeItemFromCart=()=>{
   dispatch(removeCartItems({product}))
+}
+
+const handleAmount=()=>{
+  dispatch(editCartItems())
 }
 const CartItems = ({cartItem}:any) => {
   const {cartID, title, price, image, amount, company, productColor} = cartItem
