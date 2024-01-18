@@ -61,9 +61,9 @@ const cartSlice = createSlice({
       console.log(state.cartItem);
       toast.success('Item added successfully to cart')
     },
-    removeCartItems: (state,action: PayloadAction< CartItem>) => {
+    removeCartItems: (state,action: PayloadAction< CartState>) => {
       // Implement removal logic if needed
-      const {cartID} = action.payload;
+      const {cartItem} = action.payload;
       const product = state.cartItem.findIndex((i)=>(i.cartID === cartID))
       state.cartItem = state.cartItem.filter((i) => i.cartID !== cartID);
 
