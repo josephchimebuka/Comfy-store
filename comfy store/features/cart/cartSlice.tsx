@@ -73,6 +73,8 @@ const cartSlice = createSlice({
         state.cartItem[product].amount = product.amount;
    
       }
+
+      //i am still having errors 
       state.numberItemsCart -= product.amount
       state.cartTotal -= product.price * product.price
       cartSlice.caseReducers.calculateTotals(state);
