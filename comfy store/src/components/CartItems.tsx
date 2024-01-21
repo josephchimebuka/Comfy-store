@@ -1,18 +1,25 @@
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../features/cart/root-reducer"
 import { editCartItems, removeCartItems } from "../../features/cart/cartSlice"
+import { formatPrice } from "../utils"
 
+
+
+
+const CartItems = ({cartItem}:any) => {
 
 
 const dispatch = useDispatch()
-const removeItemFromCart=()=>{
-  dispatch(removeCartItems({product}))
+const removeItemFromCart = () => {
+  dispatch(removeCartItems({ product }));
+};
+
+
+
+const handleAmount=(cartID:string, amount: string)=>{
+  dispatch(editCartItems({cartID, amount: parseInt(amount)}))
 }
 
-const handleAmount=()=>{
-  dispatch(editCartItems())
-}
-const CartItems = ({cartItem}:any) => {
   const {cartID, title, price, image, amount, company, productColor} = cartItem
   return (
    <article
@@ -50,9 +57,9 @@ const CartItems = ({cartItem}:any) => {
             id='amount'
             className='mt-2 select select-base select-bordered select-xs'
             value={amount}
-            onChange={handleAmount}
+            onChange={(e)=>handleAmount('',e.target.value)}
           >
-            {generateAmountOptions(amount + 5)}
+            {(amount + 5)}
           </select>
         </div>
         {/* REMOVE */}
@@ -66,6 +73,7 @@ const CartItems = ({cartItem}:any) => {
       <div>
         
       </div>
+      <p className='font-medium sm:ml-auto'>{formatPrice(price)}</p>
    </article>
   )
 }

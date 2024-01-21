@@ -56,39 +56,50 @@ const cartSlice = createSlice({
       state.numberItemsCart += product.amount
       state.cartTotal = product.amount * product.price
       state.cartTotal = state.cartItem.reduce((total, item) => total + item.price, 0);
-      // ... other updates
+      // ... other updatesnumItemsInCart
       cartSlice.caseReducers.calculateTotals(state)
       console.log(state.cartItem);
       toast.success('Item added successfully to cart')
     },
-    removeCartItems: (state,action: PayloadAction< CartState>) => {
-      // Implement removal logic if needed
-      const {cartItem} = action.payload;
-      const product = state.cartItem.findIndex((i)=>(i.cartID === cartID))
-      state.cartItem = state.cartItem.filter((i) => i.cartID !== cartID);
+    removeCartItems: (state, action: PayloadAction<{ product: CartItem }>) => {
+      const { product } = action.payload;
+      const removedItemIndex = state.cartItem.findIndex((item) => item.cartID === product.cartID);
 
-      if (product !== -1) {
-        // Item already exists, update the quantity or other properties
-        // For now, let's just update the amount for demonstration purposes
-        state.cartItem[product].amount = product.amount;
-   
+      if (removedItemIndex !== -1) {
+        const removedItem = state.cartItem[removedItemIndex];
+        state.cartItem = state.cartItem.filter((item) => item.cartID !== product.cartID);
+
+        state.numberItemsCart -= removedItem.amount;
+        state.cartTotal -= removedItem.price * removedItem.amount;
+
+        // Assuming you have a calculateTotals function
+        // Update it accordingly based on your logic
+        cartSlice.caseReducers.calculateTotals(state);
+
+        toast.error('Item removed from cart');
       }
-
-      //i am still having errors 
-      //eradictate this when you are doing the real code
-      state.numberItemsCart -= product.amount
-      state.cartTotal -= product.price * product.price
-      cartSlice.caseReducers.calculateTotals(state);
-      toast.error('Item removed from cart');
     },
     clearCart: (state) => {
       // Implement clearing logic if needed
       localStorage.setItem('cart', JSON.stringify(defaultState))
       return defaultState
     },
-    editCartItems: (state,action: PayloadAction<CartItem>) => {
-      // Implement editing logic if needed
-      const {cartID, amount} = action.payload
+    editCartItems: (state, action: PayloadAction<{ cartID: string; amount: number }>) => {
+      const { cartID, amount } = action.payload;
+      const existingItemIndex = state.cartItem.findIndex(
+        (item) => item.cartID === cartID
+      );
+
+      if (existingItemIndex !== -1) {
+        const existingItem = state.cartItem[existingItemIndex];
+        state.numberItemsCart += amount - existingItem.amount;
+        state.cartTotal += existingItem.price * (amount - existingItem.amount);
+        existingItem.amount = amount;
+        // Assuming you have a calculateTotals function
+        // Update it accordingly based on your logic
+        cartSlice.caseReducers.calculateTotals(state);
+        toast.success('Cart updated');
+      }
     },
     calculateTotals:(state)=>{
       state.tax = 0.1 * state.cartTotal

@@ -2,8 +2,9 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import CartItems from './CartItems'
 import { RootState } from '../../features/cart/root-reducer'
-const cartItem =  useSelector((state: RootState) =>( state.cartreducer.cartItem))
+
 const CartItemList = () => {
+  const cartItem =  useSelector((state: RootState) =>( state.cartreducer.cartItem))
   return (
     <div>
       {
