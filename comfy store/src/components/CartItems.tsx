@@ -11,7 +11,7 @@ const CartItems = ({cartItem}:any) => {
 
 const dispatch = useDispatch()
 const removeItemFromCart = () => {
-  dispatch(removeCartItems({ product }));
+  dispatch(removeCartItems({ product:cartID }));
 };
 
 
@@ -24,11 +24,13 @@ const handleAmount=(cartID:string, amount: string)=>{
   return (
    <article
    className="mb-12 flex flex-col gap-y-4 sm:flex-row flex-wrap border-b border-base-300 pb-6 last:border-b-0"
-
+  
    >
   <img 
   src={image} 
-  alt={title} />
+  alt={title}
+  className='h-24 w-24 rounded-lg sm:h-32 sm:w-32 object-cover'
+   />
     {/* Text div */}
     <div className='sm:ml-16 sm:w-48'>
         {/* TITLE */}

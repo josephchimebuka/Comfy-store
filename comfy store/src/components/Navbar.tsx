@@ -3,30 +3,15 @@ import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
 import { FaBarsStaggered } from 'react-icons/fa6';
 import { NavLink } from 'react-router-dom';
 import { NavLinks } from '.';
-import { useSelector } from 'react-redux';
-import { RootState } from '../store';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../features/cart/root-reducer';
+import { loginUser,logoutUser,changeTheme } from '../../features/cart/userSlice';}
 const Navbar = () => {
-
-    const getLocalStorageTheme=()=>{
-      return  localStorage.getItem('theme') || themes.cupcake
-    }
-    const themes={
-        cupcake: 'light',
-        dark: 'dark'
-    }
-    const [theme, setTheme] = useState(getLocalStorageTheme());
+const dispatch = useDispatch()
     const handleTheme =()=>{
-        const{cupcake, dark} = themes
-        const newTheme = theme === cupcake ? dark : cupcake;
-      
-        setTheme(newTheme)
+      dispatch(changeTheme())
     }
 
-    useEffect(()=>{
-        document.documentElement.setAttribute('data-theme', theme)
-        localStorage.setItem('theme', theme)
-    },[theme])
 const numberCartItems = useSelector((state: RootState) => state.cartreducer.numberItemsCart);
 
   return (
@@ -36,7 +21,7 @@ const numberCartItems = useSelector((state: RootState) => state.cartreducer.numb
         {/* Title */}
         <NavLink
           to='/'
-          className='hidden lg:flex btn btn-primary text-3xl items-center '
+          className='hidden lg:flex btn btn-primary text-3xl items-center'
         >
           DER
         </NavLink>
