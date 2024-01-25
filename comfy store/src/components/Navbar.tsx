@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { NavLinks } from '.';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../features/cart/root-reducer';
-import { loginUser,logoutUser,changeTheme } from '../../features/cart/userSlice';}
+import {changeTheme } from '../../features/cart/userSlice';
 const Navbar = () => {
 const dispatch = useDispatch()
     const handleTheme =()=>{

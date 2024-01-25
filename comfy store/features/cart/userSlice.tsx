@@ -1,5 +1,6 @@
 import React from 'react'
 import {createSlice} from '@reduxjs/toolkit'
+import { toast } from 'react-toastify';
 
 
 interface UserState {
@@ -30,8 +31,10 @@ const userSlice = createSlice({
     loginUser: (state, action)=>{
         console.log(state)
     },
-    logoutUser: (state, action) =>{
-      console.log(state)
+    logoutUser: (state) =>{
+      state.user.username = '';
+      localStorage.removeItem('user')
+      toast.success('Logged out successfully')
     },
     changeTheme:(state)=>{
       state.theme = state.theme  === themes.cupcake ? themes.dark : themes.cupcake
