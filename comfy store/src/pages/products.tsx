@@ -15,7 +15,7 @@ export const loader = async({request}:{request:any})=>{
       params
     })
     const products = response.data.data
-    const meta = response.data.meta
+    const meta = response.data.meta 
     console.log(response)
     return{products,meta,params}
   
