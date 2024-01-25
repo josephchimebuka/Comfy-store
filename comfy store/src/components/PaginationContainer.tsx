@@ -19,7 +19,7 @@ const PaginationContainer = () => {
     const pages = Array.from({ length: pageCount }, (_, index) => {
     return index + 1;
   });
-    const handlePageNumber=(pageNumber:number | string)=>{
+    const handlePageNumber=(pageNumber:any)=>{
       const searchParams = new URLSearchParams(search);
       searchParams.set('page', pageNumber);
       navigate(`${pathname}?${searchParams.toString()}`);
