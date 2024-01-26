@@ -1,9 +1,12 @@
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import {Home, About, Cart, Landing, SingleProduct, Products, Error, Login, Register, Checkout, Orders} from './pages/index'
 import ErrorElement from './components/ErrorElement'
+// loaders
 import {loader as landingloader} from './pages/landing'
 import {loader as singleProductsLoader} from './pages/singleProducts'
 import {loader as productsLoader} from './pages/products'
+// actions
+import {action as registerAction} from './pages/register'
 
 function App() {
   const router = createBrowserRouter([
@@ -51,7 +54,8 @@ function App() {
     {
       path: '/register',
       element: <Register/>,
-      errorElement: <Error status={0}/>
+      errorElement: <Error status={0}/>,
+      action: registerAction
     }
   ])
   return (
