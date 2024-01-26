@@ -37,7 +37,7 @@ const register = () => {
         <div className='mt-4'>
           <SubmitBtn text='register' />
         </div>
-
+{/* Already a member then redirect to login */}
         <p className='text-center'>
           Already a member?
           <Link
