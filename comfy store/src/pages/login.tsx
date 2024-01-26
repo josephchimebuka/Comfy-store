@@ -1,7 +1,33 @@
 import React from 'react'
 import { FormInput, SubmitBtn } from '../components'
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, redirect } from 'react-router-dom';
+import { fetchURL } from '../utils';
+import { loginUser } from '../../features/cart/userSlice';
+import { toast } from 'react-toastify';
 
+
+export const action =(store:any)=>async({request}:{request: any})=>{
+//  console.log(store)
+
+const formData = await request.formData
+const data = Object.fromEntries(formData)
+
+try {
+  const response = fetchURL.post('/auth/local', data)
+      store.dispatch(loginUser((await response).data))
+      toast.success('Logged in successful')
+      redirect('/')
+
+} catch (error) {
+  console.log(error);
+  // const errorMessage =
+  //   error?.response?.data?.error?.message ||
+  //   'please double check your credentials';
+
+  // toast.error(errorMessage);
+  return null;
+}
+}
 const login = () => {
   return (
     <div>
@@ -12,17 +38,15 @@ const login = () => {
       >
         <h4 className='text-center text-3xl font-bold'>Login</h4>
         <FormInput
-          type='email'
-          label='email'
-          name='identifier'
-          defaultValue='test@test.com'
-        />
+            type='email'
+            label='email'
+            name='identifier'
+            defaultValue='test@test.com' size={''}        />
         <FormInput
-          type='password'
-          label='password'
-          name='password'
-          defaultValue='secret'
-        />
+            type='password'
+            label='password'
+            name='password'
+            defaultValue='secret' size={''}        />
         <div className='mt-4'>
           <SubmitBtn text='login' />
         </div>

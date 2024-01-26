@@ -29,7 +29,7 @@ const userSlice = createSlice({
   initialState: defaultState,
   reducers: {
     loginUser: (state, action)=>{
-        console.log(state)
+        console.log(action.payload)
     },
     logoutUser: (state) =>{
       state.user.username = '';

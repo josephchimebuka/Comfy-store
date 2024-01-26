@@ -13,7 +13,7 @@ export const action =async({request}:{request:any})=>{
 
  try {
   const response = fetchURL.post('/auth/local/register', data)
-  toast.success('registeration succesful')
+  toast.success('registration succesful')
   return redirect('/')
  } catch (error) {
   // const errorMessage =      error?.response?.data?.error?.message ||
