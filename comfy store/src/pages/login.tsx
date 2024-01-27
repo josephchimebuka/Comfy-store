@@ -29,6 +29,7 @@ try {
 }
 }
 const login = () => {
+  //login page where the user logs into the the site
   return (
     <div>
       <section className='h-screen grid place-items-center'>
