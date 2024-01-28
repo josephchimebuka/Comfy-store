@@ -66,6 +66,9 @@ const login = () => {
         <div>
           I didnt wrute code in this page tody but i did in another
         </div>
+        <div>
+          should finisht his rojects by today and send out by tomorrow and also be more serious
+        </div>
       </Form>
       </section>
     </div>
