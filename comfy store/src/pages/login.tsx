@@ -68,6 +68,7 @@ const login = () => {
         </div>
         <div>
           should finisht his rojects by today and send out by tomorrow and also be more serious
+          <div>last text for the day</div>
         </div>
       </Form>
       </section>
