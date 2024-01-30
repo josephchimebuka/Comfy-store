@@ -42,7 +42,7 @@ const login = () => {
             type='email'
             label='email'
             name='identifier'
-            defaultValue='test@test.com' size={''}        />
+            defaultValue='test@test.com' size={''}       />
         <FormInput
             type='password'
             label='password'
@@ -63,13 +63,7 @@ const login = () => {
             register
           </Link>
         </p>
-        <div>
-          I didnt wrute code in this page tody but i did in another
-        </div>
-        <div>
-          should finisht his rojects by today and send out by tomorrow and also be more serious
-          <div>last text for the day</div>
-        </div>
+    
       </Form>
       </section>
     </div>
