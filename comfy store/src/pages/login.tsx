@@ -1,9 +1,10 @@
 import React from 'react'
 import { FormInput, SubmitBtn } from '../components'
-import { Form, Link, redirect } from 'react-router-dom';
+import { Form, Link, redirect, useNavigate } from 'react-router-dom';
 import { fetchURL } from '../utils';
 import { loginUser } from '../../features/cart/userSlice';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
 
 export const action =(store:any)=>async({request}:{request: any})=>{
@@ -11,6 +12,7 @@ export const action =(store:any)=>async({request}:{request: any})=>{
 
 const formData = await request.formData
 const data = Object.fromEntries(formData)
+
 
 try {
   const response = fetchURL.post('/auth/local', data)
@@ -27,6 +29,24 @@ try {
   // toast.error(errorMessage);
   return null;
 }
+}
+
+const loginGetAsGuestUser= async()=>{
+const dispatch = useDispatch()
+const navigate = useNavigate()
+  try {
+    const response = await fetchURL.post('/auth/local',{
+
+      username: 'test@gmail.com',
+      password: 'secret'
+    })
+    dispatch(loginUser(response.data));
+    toast.success('welcome guest user');
+    navigate('/');
+  } catch (error) {
+    console.log(error)
+    toast.error('Error')
+  }
 }
 const login = () => {
   //login page where the user logs into the the site
