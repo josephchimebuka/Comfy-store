@@ -5,6 +5,7 @@ import ErrorElement from './components/ErrorElement'
 import {loader as landingloader} from './pages/landing'
 import {loader as singleProductsLoader} from './pages/singleProducts'
 import {loader as productsLoader} from './pages/products'
+import {loader as checkoutLoader} from './pages/checkout'
 // actions
 import {action as registerAction} from './pages/register'
 import {action as loginAction} from './pages/login'
@@ -41,6 +42,7 @@ function App() {
         {
           path: 'checkout',
           element: <Checkout />,
+          loader: checkoutLoader(store)
         },
         {
           path: 'order',
