@@ -1,10 +1,10 @@
 import CartTotal from '../components/CartTotal'
-import CheckoutForm from '../components/CheckoutForm'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../features/cart/root-reducer'
 import { SectionTitle } from '../components'
 import { toast } from 'react-toastify'
 import { redirect } from 'react-router-dom'
+import CheckoutForm from '../components/CheckoutForm'
 
 
 
