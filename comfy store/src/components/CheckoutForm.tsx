@@ -9,36 +9,7 @@ export const action =()=>async({request}:{request: any})=>{
  const formData = await request.formData()
  const user = store.getState()
 
- const info = {
-  name,
-  address,
-  chargeTotal: orderTotal,
-  orderTotal: formatPrice(orderTotal),
-  cartItems,
-  numItemsInCart,
-};
-try {
-  const response = await customFetch.post(
-    '/orders',
-    { data: info },
-    {
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-      },
-    }
-  );
-  store.dispatch(clearCart());
-  toast.success('order placed successfully');
-  return redirect('/orders');
-} catch (error) {
-  console.log(error);
-  const errorMessage =
-    error?.response?.data?.error?.message ||
-    'there was an error placing your order';
-
-  toast.error(errorMessage);
-  return null;
-}
+// I removed the functions on the checkout form
 }
 const checkoutForm = () => {
   return (
