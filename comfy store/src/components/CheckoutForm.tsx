@@ -12,6 +12,7 @@ export const action =()=>async({request}:{request: any})=>{
 // I removed the functions on the checkout form
 //I didnt write much code todayjust don't want to miss any days that just want to mk
 //third new changes
+// I was suppode to make some changes today but im doing them late i need to take this very serious
 }
 const checkoutForm = () => {
   return (
