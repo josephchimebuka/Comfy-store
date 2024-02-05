@@ -13,6 +13,7 @@ export const action =()=>async({request}:{request: any})=>{
 //I didnt write much code todayjust don't want to miss any days that just want to mk
 //third new changes
 // I was suppode to make some changes today but im doing them late i need to take this very serious
+//I have to start looking at a very good way to build products that people will actually use
 }
 const checkoutForm = () => {
   return (
