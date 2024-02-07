@@ -9,7 +9,7 @@ import CheckoutForm from '../components/CheckoutForm'
 
 
 export const loader =(store: any) => async()=>{
-  //when i have data check how to get state from user
+//get user from store with typescript
 const user = store.getState().userState.user
   if(!user){
     toast.warn('Login to checkout from store')
