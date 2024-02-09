@@ -17,7 +17,7 @@ const user = store.getState().userState.user
   }
 }
 const checkout = () => {
- 
+    //get the remaining changes on the site
   const cartItem =  useSelector((state:RootState) => (state.cartreducer.cartTotal))
   if(cartItem === 0){
     <SectionTitle text='There is no product in the cart'/>
