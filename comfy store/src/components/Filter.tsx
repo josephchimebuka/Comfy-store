@@ -25,10 +25,10 @@ const Filter = () => {
   return (
   <Form className='mt-12 bg-base-200 rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center'>
       <FormInput 
-        label={'Search Category'} 
-        name={'search'} 
+        label={'Search Category'}
+        name={'search'}
         type={'search'}
-        size={''}/>
+        size={''} defaultValue={''}/>
         <FormSelect 
         label={'Select Category'}
         lists={meta.categories}
