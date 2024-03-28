@@ -12,7 +12,7 @@ const Hero = () => {
     <div className=' grid grid-cols-1 lg:grid-cols-2 gap-24 items-center'>
     <div>
       <h1 className='max-w-2xl text-2xl font-bold tracking-tight  sm:text-6xl mt-24'>
-      Unwind in Style: Premier Accommodations, Seamless Comfort     </h1>
+      Premier Accommodations and Seamless Comfort     </h1>
 
       <p className='mt-8 max-w-xl text-lg leading-8'>
       Welcome to a world of unparalleled comfort and hospitality! 
