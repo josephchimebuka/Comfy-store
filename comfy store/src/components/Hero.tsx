@@ -1,4 +1,3 @@
-import React from 'react'
 import image1 from '../assets/hero1.webp'
 import image2 from '../assets/hero2.webp'
 import image3 from '../assets/hero3.webp'
@@ -22,7 +21,7 @@ const Hero = () => {
       each crafted to cater to your unique preferences. 
       </p>
       <div className='mt-10 '>
-        <Link to='products' className='btn btn-primary '>
+        <Link to='products' className='btn btn-primary uppercase'>
           Our Products
         </Link>
       </div>
